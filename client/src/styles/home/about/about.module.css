@@ -1,0 +1,14 @@
+.body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #2c0229 20%,#3f0226ee 60%);
+    color: whitesmoke;
+}
+.img{
+    box-shadow: 0 0 8px #9d1199, 0 0 15px #0982df;
+}
+.heading{
+    background: linear-gradient(to right, #bd74bb , #759f9f );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
