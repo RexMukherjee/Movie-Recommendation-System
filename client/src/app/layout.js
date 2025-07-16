@@ -15,12 +15,15 @@ export const metadata = {
   title: "Obscura",
   description: "Uncover the unseen. Discover cinema's shadows.",
   icons: {
-    icon: '/logo.png',
+    icon: '/logo.ico',
   },
 };
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* <head>
+        <link rel="icon" href="/logo.ico"/>
+      </head> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

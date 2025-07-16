@@ -1,12 +1,14 @@
 import Image from "next/image";
 import styles from "../../../styles/home/navbar/navbar.module.css"
 import { LuSearch } from "react-icons/lu";
+import { CgProfile } from "react-icons/cg";
+
 import Link from "next/link";
 export default function Navbar() {
   return (
     <main>
       <nav className={styles.navbar}>
-        <img src="/logo.jpeg" alt="" className={styles.logo} />
+        <img src="/logo.png" alt="" className={styles.logo} />
         
         <ul className={styles.menu}>
             <li style={{margin:"10px"}}><Link href="/" >Home</Link></li>
@@ -21,7 +23,10 @@ export default function Navbar() {
                     <LuSearch/>
                 </div>
             </form>
-            <Link href="/components/profile"><img src="/profile.jpeg" alt="" className={styles.profile}/></Link>
+            <Link href="/components/profile"><div className={styles.profile}>
+                    {/* <i class="fa-solid fa-magnifying-glass"></i> */}
+                    <CgProfile style={{width: "39px", height: "40px"}}/>
+                </div></Link>
         </ul>
       </nav>
     </main>
