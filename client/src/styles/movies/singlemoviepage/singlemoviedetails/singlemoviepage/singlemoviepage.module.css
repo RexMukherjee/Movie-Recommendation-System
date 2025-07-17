@@ -1,0 +1,83 @@
+.singleMovieContainer {
+  padding: 1rem;
+  background: linear-gradient(90deg,  #1c0125 0%, #410529 100%);
+  color: white;
+}
+
+.trailerContainer {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.trailer {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 12px;
+}
+
+.detailsCard {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.5); 
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.poster {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.details {
+  flex: 1;
+  min-width: 250px;
+}
+
+.notFound {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+.trailerPoster {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  position: relative;
+}
+
+.watchNowLink {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.watchNowOverlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #410529 0%, #1c0125 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 
+    0 0 5px #351010cd,
+    0 0 10px #6c1313cd,
+    0 0 20px #a01d1dcd;
+  transition: all 0.3s ease;
+}
+.watchNowOverlay:hover,
+.watchNowOverlay:focus{
+  border-color: #174c4c; 
+    outline: none;
+    box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+}
