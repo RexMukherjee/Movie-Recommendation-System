@@ -49,6 +49,10 @@ export default function SingleMoviePage() {
           <p><strong>Language:</strong> {movie.language}</p>
           <p><strong>Director:</strong> {Array.isArray(movie.director) ? movie.director.join(", ") : movie.director}</p>
           <p><strong>Actors:</strong> {Array.isArray(movie.actors) ? movie.actors.join(", ") : movie.actors}</p>
+<<<<<<< Updated upstream
+=======
+          <p><strong>Description:</strong> {movie.summary}</p>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>
