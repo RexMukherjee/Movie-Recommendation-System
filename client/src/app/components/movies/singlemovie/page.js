@@ -1,11 +1,14 @@
 import React from 'react'
-{/* Details , Favories button , watch now , review*/}
-const singlemovie = () => {
+import SingleMoviePage from './singlemoviedetails/singlemoviepage'
+import Reviews from './singlemoviedetails/reviews'
+
+const Page = () => {
   return (
     <div>
-      Detailed One movie
+      <SingleMoviePage/>
+      <Reviews/>
     </div>
   )
 }
 
-export default singlemovie
+export default Page

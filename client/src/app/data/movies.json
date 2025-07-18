@@ -10,8 +10,9 @@
     "genre": "Thriller",
     "actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt"],
     "director": "Christopher Nolan",
-    "poster_url": "/logo.jpeg",
-    "summary": "A thief who steals secrets through dream-sharing technology is given a chance to erase his past."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A thief who steals secrets through dream-sharing technology is given a chance to erase his past.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 2,
@@ -24,8 +25,9 @@
     "genre": "Cult Classic",
     "actors": ["Aamir Khan", "Kareena Kapoor"],
     "director": "Rajkumar Hirani",
-    "poster_url": "/logo.jpeg",
-    "summary": "Three friends question the Indian education system while pursuing engineering."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Three friends question the Indian education system while pursuing engineering.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 3,
@@ -38,8 +40,9 @@
     "genre": "Supernatural",
     "actors": ["Rumi Hiiragi", "Miyu Irino"],
     "director": "Hayao Miyazaki",
-    "poster_url": "/logo.jpeg",
-    "summary": "A girl enters a world of spirits and gods to save her parents."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A girl enters a world of spirits and gods to save her parents.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 4,
@@ -52,8 +55,9 @@
     "genre": "Mystery",
     "actors": ["Song Kang-ho", "Choi Woo-shik"],
     "director": "Bong Joon-ho",
-    "poster_url": "/logo.jpeg",
-    "summary": "A poor family infiltrates the lives of a rich household."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A poor family infiltrates the lives of a rich household.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 5,
@@ -66,8 +70,9 @@
     "genre": "Romance",
     "actors": ["Ryunosuke Kamiki", "Mone Kamishiraishi"],
     "director": "Makoto Shinkai",
-    "poster_url": "/logo.jpeg",
-    "summary": "Two strangers find themselves mysteriously connected across time and space."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Two strangers find themselves mysteriously connected across time and space.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 6,
@@ -80,8 +85,9 @@
     "genre": "Cult Classic",
     "actors": ["Keerthy Suresh", "Dulquer Salmaan"],
     "director": "Nag Ashwin",
-    "poster_url": "/logo.jpeg",
-    "summary": "A biopic of legendary South Indian actress Savitri."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A biopic of legendary South Indian actress Savitri.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 7,
@@ -94,8 +100,9 @@
     "genre": "Supernatural",
     "actors": ["Idina Menzel", "Kristen Bell"],
     "director": "Chris Buck",
-    "poster_url": "/logo.jpeg",
-    "summary": "A princess sets out to find her sister with magical powers."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A princess sets out to find her sister with magical powers.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 8,
@@ -108,8 +115,9 @@
     "genre": "Thriller",
     "actors": ["Lee Sun-kyun", "IU"],
     "director": "Kim Won-seok",
-    "poster_url": "/logo.jpeg",
-    "summary": "Two emotionally wounded individuals form an unlikely connection."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Two emotionally wounded individuals form an unlikely connection.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 9,
@@ -122,8 +130,9 @@
     "genre": "Romance",
     "actors": ["Shah Rukh Khan", "Kajol"],
     "director": "Aditya Chopra",
-    "poster_url": "/logo.jpeg",
-    "summary": "Two young lovers face family resistance."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Two young lovers face family resistance.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 10,
@@ -136,8 +145,9 @@
     "genre": "Supernatural",
     "actors": ["Vera Farmiga", "Patrick Wilson"],
     "director": "James Wan",
-    "poster_url": "/logo.jpeg",
-    "summary": "Paranormal investigators confront a demonic entity."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Paranormal investigators confront a demonic entity.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 11,
@@ -150,8 +160,9 @@
     "genre": "Mystery",
     "actors": ["Chow Yun-fat", "Michelle Yeoh"],
     "director": "Ang Lee",
-    "poster_url": "/logo.jpeg",
-    "summary": "A legendary warrior seeks justice while uncovering secrets."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A legendary warrior seeks justice while uncovering secrets.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 12,
@@ -164,8 +175,9 @@
     "genre": "Suspense",
     "actors": ["Gong Yoo", "Ma Dong-seok"],
     "director": "Yeon Sang-ho",
-    "poster_url": "/logo.jpeg",
-    "summary": "Passengers fight for survival during a zombie outbreak."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Passengers fight for survival during a zombie outbreak.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 13,
@@ -178,8 +190,9 @@
     "genre": "Romance",
     "actors": ["Salman Khan", "Harshaali Malhotra"],
     "director": "Kabir Khan",
-    "poster_url": "/logo.jpeg",
-    "summary": "A man helps a mute girl reunite with her family across the border."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A man helps a mute girl reunite with her family across the border.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 14,
@@ -192,8 +205,9 @@
     "genre": "Cult Classic",
     "actors": ["Patton Oswalt"],
     "director": "Brad Bird",
-    "poster_url": "/logo.jpeg",
-    "summary": "A rat dreams of becoming a French chef."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A rat dreams of becoming a French chef.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 15,
@@ -206,8 +220,9 @@
     "genre": "Romance",
     "actors": ["Ranbir Kapoor", "Deepika Padukone"],
     "director": "Ayan Mukerji",
-    "poster_url": "/logo.jpeg",
-    "summary": "Friends reunite and discover love while trekking in the Himalayas."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Friends reunite and discover love while trekking in the Himalayas.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 16,
@@ -220,8 +235,9 @@
     "genre": "Thriller",
     "actors": ["Pankaj Tripathi", "Ali Fazal"],
     "director": "Gurmmeet Singh",
-    "poster_url": "/logo.jpeg",
-    "summary": "A crime saga set in the heart of Uttar Pradesh."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A crime saga set in the heart of Uttar Pradesh.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 17,
@@ -234,8 +250,9 @@
     "genre": "Cult Classic",
     "actors": ["Takeru Satoh", "Emi Takei"],
     "director": "Keishi Ōtomo",
-    "poster_url": "/logo.jpeg",
-    "summary": "A former assassin protects the innocent in Meiji-era Japan."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A former assassin protects the innocent in Meiji-era Japan.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 18,
@@ -248,8 +265,9 @@
     "genre": "Mystery",
     "actors": ["Kiara Advani", "Radhika Apte"],
     "director": "Multiple",
-    "poster_url": "/logo.jpeg",
-    "summary": "Four short films explore female desire in modern India."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "Four short films explore female desire in modern India.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 19,
@@ -262,8 +280,9 @@
     "genre": "Thriller",
     "actors": ["Louis Hofmann", "Lisa Vicari"],
     "director": "Baran bo Odar",
-    "poster_url": "/logo.jpeg",
-    "summary": "A town unravels when children begin disappearing mysteriously."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A town unravels when children begin disappearing mysteriously.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     "id": 20,
@@ -276,7 +295,8 @@
     "genre": "Suspense",
     "actors": ["Chutimon Chuengcharoensukying"],
     "director": "Nattawut Poonpiriya",
-    "poster_url": "/logo.jpeg",
-    "summary": "A genius student devises an exam cheating operation."
+    "poster_url": "/anyimg.jpeg",
+    "summary": "A genius student devises an exam cheating operation.",
+    "trailer_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   }
 ]

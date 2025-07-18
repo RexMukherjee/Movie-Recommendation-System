@@ -1,0 +1,35 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #2c0229 20%, #3f0226ee 60%);
+  color: white;
+  padding: 2rem;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.poster {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #740670, 0 0 30px #00e6e6;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.notfound {
+  color: red;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 50px;
+}
