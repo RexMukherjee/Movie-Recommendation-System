@@ -3,41 +3,62 @@
   background: linear-gradient(90deg,  #1c0125 0%, #410529 100%);
   color: white;
 }
+.heroSection {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
 
 .trailerContainer {
+  width: 100%;
+  height: 100%;
   position: relative;
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.trailer {
+/* .trailer {
   width: 100%;
   height: 400px;
   border: none;
   border-radius: 12px;
-}
+} */
 
 .detailsCard {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   padding: 1rem;
   background: rgba(26, 26, 26, 0.5); 
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem ;
 }
 
 .poster {
   width: 250px;
   height: auto;
-  border-radius: 12px;
-  margin-right: 1rem;
+   border-radius: 12px;
+  /*margin-right: 1rem; */
+  object-fit: cover;
 }
 
 .details {
   flex: 1;
   min-width: 250px;
+}
+.details h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.details p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
 }
 
 .notFound {
@@ -48,15 +69,20 @@
 }
 .trailerPoster {
   width: 100%;
-  height: auto;
-  border-radius: 12px;
-  position: relative;
+  height: 100%;
+  /* border-radius: 12px;
+  position: relative; */
+   object-fit: cover;
 }
 
 .watchNowLink {
-  position: relative;
+  /* position: relative;
   display: inline-block;
   text-align: center;
+  display: block; */
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .watchNowOverlay {
@@ -80,4 +106,59 @@
   border-color: #174c4c; 
     outline: none;
     box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+    background: linear-gradient(90deg, #1c0125 0%, #410529 100%);
+}
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.reviewTabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tabButton {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tabButton:hover {
+  color: white;
+}
+
+.activeTab {
+  color: white;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #410529 0%, #1c0125 100%);
+}
+
+.reviewsSection {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reviewsSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }

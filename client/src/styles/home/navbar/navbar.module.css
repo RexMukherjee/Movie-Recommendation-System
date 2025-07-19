@@ -179,5 +179,7 @@
     width: 80%;
   }
 
-  
+  .profile{
+    display: block;
+  }
 }

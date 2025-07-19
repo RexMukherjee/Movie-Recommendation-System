@@ -1,0 +1,148 @@
+.body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  font-family: sans-serif;
+  background: linear-gradient(90deg, #1c0125 0%, #410529 100%);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.dp {
+  
+  display: block;
+  margin: 0 auto; 
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #888;
+  
+}
+
+.fileInput {
+  margin-top: 0.5rem;
+}
+
+.details {
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.changeBtn{
+    display: block;
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 0.75rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #410529 0%, #1c0125 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.signoutBtn {
+  display: block;
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 0.75rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;  
+  background-color: #ef4444;
+}
+
+.changeBtn:hover {
+  background-color: #2563eb;
+  box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+  border-color: #174c4c;
+}
+.signoutBtn:hover {
+  background-color: #a70a0a;
+}
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: #410529;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.popup input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.popupBtns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.popupBtns button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popupBtns button:first-child {
+  background-color: #22c55e;
+  color: white;
+}
+
+.popupBtns button:last-child {
+  background-color: #e5e7eb;
+  color: #333;
+}
+.popupBtns button:first-child:hover {
+  background-color: #0f7c37;
+}
+
+.popupBtns button:last-child:hover {
+  background-color: #333;
+  color: #e5e7eb;
+}

@@ -28,6 +28,7 @@
     border-color: #174c4c; 
     outline: none;
     box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+    background: linear-gradient(90deg, #1c0125 0%, #410529 100%);
 }
 
 .button {
@@ -55,6 +56,7 @@
 .button:hover {
   outline: none;
    box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+   background: linear-gradient(90deg, #1c0125 0%, #410529 100%);
    border-color: #174c4c; 
   
 }

@@ -1,0 +1,48 @@
+
+.reviewsList {
+  margin-top: 2rem;
+}
+
+.reviewItem {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border-left: 4px solid #410529;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reviewHeader h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.reviewRating {
+  display: flex;
+}
+
+.starFilled {
+  color: #ffc107;
+}
+
+.starEmpty {
+  color: #555;
+}
+
+.reviewDate {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+
+.reviewComment {
+  margin: 0;
+  line-height: 1.6;
+}
