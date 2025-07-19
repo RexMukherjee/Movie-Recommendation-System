@@ -6,13 +6,44 @@ import { LuSearch } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
-
 import Link from "next/link";
+import { useSession,signIn } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
+
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // const handleLinkClick = () => setMenuOpen(false);
-
+  const { data: session } = useSession();
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleProfileClick = async() => {
+    if (!session) {
+    signIn("google", {
+      callbackUrl: `/components/profile`,
+    });
+  } else {
+    router.push("/components/profile");
+  }
+  }
+  const ProfileIcon = (
+    <div className={styles.profile} onClick={handleProfileClick}>
+      {session?.user?.image ? (
+        <Image
+          src={session.user.image}
+          width={32}
+          height={32}
+          alt="Profile"style={{borderRadius: "50px",cursor:"pointer"}}
+        />
+      ) : (
+        <div className={styles.profile}>
+          <CgProfile style={{ width: "39px", height: "40px" }} />
+        </div>
+         
+      )}
+    </div>
+  );  
   return (
     <main className={styles.body}>
       <nav className={styles.navbar}>
@@ -31,10 +62,26 @@ export default function Navbar() {
                     <LuSearch/>
                 </div>
             </form>
-            <Link href="/components/profile"><div className={styles.profile}>
+             {/* <Link href={session?.user ? "/components/profile" : "/components/signin"}>
+             {/*<div className={styles.profile}>
                     {/* <i class="fa-solid fa-magnifying-glass"></i> */}
-                    <CgProfile style={{width: "39px", height: "40px"}}/>
-                </div></Link>
+                   {/* <CgProfile style={{width: "39px", height: "40px"}}/>
+                </div>*/}
+                {/* {session?.user?.image ? (
+                <Image
+                  src={session.user.image}
+                  width={32}
+                  height={32}
+                  alt="Profile"
+                  className="rounded-full cursor-pointer"
+                />
+              ) : (
+                <div className={styles.profile}>
+                  <CgProfile style={{ width: "39px", height: "40px" }} />
+                </div>
+              )}
+              </Link>   */}
+              {ProfileIcon}
         </ul>
       </nav>
       <nav className={styles.navbar2}>
@@ -57,10 +104,11 @@ export default function Navbar() {
                     <LuSearch/>
                 </div>
             </form>
-            <Link href="/components/profile"><div className={styles.profile}>
+            {/* <Link href="/components/profile"><div className={styles.profile}> */}
                     {/* <i class="fa-solid fa-magnifying-glass"></i> */}
-                    <CgProfile style={{width: "39px", height: "40px"}}/>
-                </div></Link>
+                    {/* <CgProfile style={{width: "39px", height: "40px"}}/>
+                </div></Link> */}
+                {ProfileIcon}
         </ul>
       </nav>
     </main>
