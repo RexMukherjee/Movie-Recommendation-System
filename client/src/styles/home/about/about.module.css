@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap');
 .body{
     width: 100%;
-    height: 100vh;
+    height: 160vh;
     background: linear-gradient(180deg, #2c0229 20%,#3f0226ee 60%);
     color: whitesmoke;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    
     
 }
 .img{
@@ -11,10 +19,98 @@
 }
 .heading{
     background: linear-gradient(to right, #bd74bb , #759f9f );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* margin-left: 50%;
+    margin-top: 10px; */
 }
 .aboutpara{
-    padding: 10px;
+    max-width: 700px;
+    padding: 15px;
+    font-size: 1.5rem;
+    line-height: 1.6;
 }
+.explore {
+    background: linear-gradient(90deg, #410529 0%, #1c0125 100%);
+    color: #ffffff !important;
+    border: 1px solid #8f0b5a; 
+    padding: 0.9rem 1.2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-shadow: 
+    0 0 5px #351010cd,
+    0 0 10px #6c1313cd,
+    0 0 20px #a01d1dcd;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    margin: 2px;
+    font-family: cursive;
+}
+.explore:hover, .explore:focus{
+    
+    border-color: #174c4c; 
+    outline: none;
+    box-shadow: 0 0 5px #740670, 0 0 20px #043939, 0 0 30px #6b038e;
+    background: linear-gradient(90deg, #1c0125 0%, #410529 100%);
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+  height: 320px; /* Make space for buttons */
+  overflow: visible;
+}
+
+.carouselContainer {
+  overflow-x: auto;
+  scroll-behavior: smooth !important;
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+
+.carouselContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.movieCard {
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.46);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 8px 12px;
+  border-radius: 50%;
+  height: 61px;
+  width: 61px;
+}
+
+.leftArrow {
+  left: 10px;
+}
+
+.rightArrow {
+  right: 10px;
+}
+
+

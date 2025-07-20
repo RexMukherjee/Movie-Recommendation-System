@@ -12,6 +12,7 @@
   z-index: 1000;
   /* padding-right: 10px; */
   overflow-x:hidden;
+  padding: 0;
 }
  /* .search{                                 //dark in pink #410529 
     margin-top: 5px;                        //dark in violet #1c0125
@@ -44,7 +45,9 @@
   gap: 35px;
   list-style: none;
   margin-left: 700px;
+  padding: 0;
 }
+
 
 .menu li a {
   color: white;
@@ -129,6 +132,7 @@
     border-bottom: 1px solid white;
     position: relative;
     z-index: 1000;
+    width: 100%;
   }
   .navbar{
     display: none;
