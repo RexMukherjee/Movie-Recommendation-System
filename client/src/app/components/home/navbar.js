@@ -37,9 +37,7 @@ export default function Navbar() {
           alt="Profile"style={{borderRadius: "50px",cursor:"pointer"}}
         />
       ) : (
-        <div className={styles.profile}>
-          <CgProfile style={{ width: "39px", height: "40px" }} />
-        </div>
+        <CgProfile style={{ width: "39px", height: "40px", cursor: "pointer", color:"rgb(213, 1, 255)"}} />
          
       )}
     </div>
@@ -114,4 +112,5 @@ export default function Navbar() {
     </main>
   );
 }
+
 
