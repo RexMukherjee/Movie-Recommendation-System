@@ -69,7 +69,7 @@
   width: 100%;
   height: 320px; /* Make space for buttons */
   overflow: visible;
-}
+} 
 
 .carouselContainer {
   overflow-x: auto;
@@ -111,6 +111,6 @@
 
 .rightArrow {
   right: 10px;
-}
+} 
 
 
