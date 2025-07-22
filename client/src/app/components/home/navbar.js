@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
 import styles from "../../../styles/home/navbar/navbar.module.css"
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { LuSearch } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
 import Link from "next/link";
-import { useSession,signIn } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { useSession,signup } from "next-auth/react";
+ import { useRouter } from "next/navigation"; // usePathname,
 
 
 export default function Navbar() {
@@ -17,15 +17,19 @@ export default function Navbar() {
   // const handleLinkClick = () => setMenuOpen(false);
   const { data: session } = useSession();
   const router = useRouter();
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  const [isManuallyLoggedIn, setIsManuallyLoggedIn] = useState(false);
+  useEffect(() => {
+    const manualLoginStatus = localStorage.getItem("isLoggedIn") === "true";
+    setIsManuallyLoggedIn(manualLoginStatus);
+  }, []);
+
   const handleProfileClick = async() => {
-    if (!session) {
-    signIn("google", {
-      callbackUrl: `/components/profile`,
-    });
-  } else {
-    router.push("/components/profile");
-  }
+    if (session || isManuallyLoggedIn) {
+      router.push("/components/profile");
+    } else {
+      router.push(`/components/login?callbackUrl=/components/profile`);
+    }
   }
   const ProfileIcon = (
     <div className={styles.profile} onClick={handleProfileClick}>

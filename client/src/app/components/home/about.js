@@ -39,7 +39,7 @@ const About = () => {
         <button className={styles.explore} ><Link href="/components/movies" style={{color: "white", textDecoration: "none"}}>To Movies</Link></button>
         
         <h1>Top 10 Movies</h1>
-        <section className={styles.carouselWrapper}>
+         <section className={styles.carouselWrapper}>
         <button className={`${styles.arrowButton} ${styles.leftArrow}`} onClick={() => scroll("left")}>&#8249;</button>
         
         <div className={styles.carouselContainer} ref={carouselRef}>
@@ -51,7 +51,7 @@ const About = () => {
         </div>
 
         <button className={`${styles.arrowButton} ${styles.rightArrow}`} onClick={() => scroll("right")}>&#8250;</button>
-      </section>
+      </section> 
     </main>
   )
 }

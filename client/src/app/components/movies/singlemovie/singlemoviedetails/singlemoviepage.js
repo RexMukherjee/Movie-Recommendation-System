@@ -21,6 +21,7 @@ export default function SingleMoviePage() {
       router.push(`/watch/${movieId}`);
     } else {
       signIn("google",{ callbackUrl: `/watch/${movieId}` });
+      router.push(`/components/login?callbackUrl=/watch/${movieId}`);
     }
   };
 
