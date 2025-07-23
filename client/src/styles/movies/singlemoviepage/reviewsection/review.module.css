@@ -24,7 +24,7 @@
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-  width: 100%;
+  width: 98%;
   padding: 0.8rem;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.2);
