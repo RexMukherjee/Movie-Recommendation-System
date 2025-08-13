@@ -1,11 +1,12 @@
 "use client";
 import styles from "../../../../../styles/movies/singlemoviepage/singlemoviedetails/singlemoviepage/singlemoviepage.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
-import movies from "../../../../data/movies.json";
+// import movies from "../../../../data/movies.json";
 import { useEffect, useState } from "react";
 import Reviewlist from "./reviewlist";
 import Reviews from "./reviews";
 import { useSession ,signIn} from "next-auth/react";
+import { fetchMovies } from "@/lib/tmdb";
 
 export default function SingleMoviePage() {
   const searchParams = useSearchParams();
@@ -26,16 +27,38 @@ export default function SingleMoviePage() {
   };
 
   useEffect(() => {
-    if (movieId) {
-      const foundMovie = movies.find((m) => String(m.id) === String(movieId));
-      setMovie(foundMovie);
-      // Load reviews from localStorage
-      const savedReviews = localStorage.getItem(`reviews_${movieId}`);
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews));
-      }
+  //   if (movieId) {
+  //     const foundMovie = movies.find((m) => String(m.id) === String(movieId));
+  //     setMovie(foundMovie);
+  //     // Load reviews from localStorage
+  //     const savedReviews = localStorage.getItem(`reviews_${movieId}`);
+  //     if (savedReviews) {
+  //       setReviews(JSON.parse(savedReviews));
+  //     }
+  //   }
+  // }, [movieId]);
+
+  if (movieId) {
+      const getMovie = async () => {
+        try {
+          const data = await fetchMovies(`/movie/${movieId}`, {
+            append_to_response: "credits",
+          });
+          setMovie(data);
+
+          // Load reviews from localStorage
+          const savedReviews = localStorage.getItem(`reviews_${movieId}`);
+          if (savedReviews) {
+            setReviews(JSON.parse(savedReviews));
+          }
+        } catch (error) {
+          console.error("Error fetching movie:", error);
+        }
+      };
+      getMovie();
     }
   }, [movieId]);
+
   const handleReviewSubmit = (review) => {
     const updatedReviews = [...reviews, review];
     setReviews(updatedReviews);
@@ -47,13 +70,18 @@ export default function SingleMoviePage() {
     return <div className={styles.notfound}>Movie not found.</div>;
   }
 
+  const director =
+    movie.credits?.crew?.find((person) => person.job === "Director")?.name || "N/A";
+  const actors =
+    movie.credits?.cast?.slice(0, 5).map((actor) => actor.name) || [];
+
   return (
     <div className={styles.singleMovieContainer}>
       <div className={styles.heroSection}>
       <div className={styles.trailerContainer}>
           <img
-            src={movie.poster_url}
-            alt={`Watch ${movie.name}`}
+            src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+            alt={`Watch ${movie.title}`}
             className={styles.trailerPoster}
           />
           <button  onClick={handleWatchNow} className={styles.watchNowOverlay}>Watch Now</button>  
@@ -63,16 +91,16 @@ export default function SingleMoviePage() {
       {/* Movie Details Card */}
       <div className={styles.contentWrapper}>
       <div className={styles.detailsCard}>
-        <img src={movie.poster_url} className={styles.poster} alt={movie.name} />
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className={styles.poster} alt={movie.title} />
         <div className={styles.details}>
           <h2>{movie.name}</h2>
-          <p><strong>Rating:</strong> {movie.imdb_rating}</p>
-          <p><strong>Year:</strong> {movie.release_year}</p>
-          <p><strong>Genre:</strong> {movie.genre}</p>
-          <p><strong>Language:</strong> {movie.language}</p>
-          <p><strong>Director:</strong> {Array.isArray(movie.director) ? movie.director.join(", ") : movie.director}</p>
-          <p><strong>Actors:</strong> {Array.isArray(movie.actors) ? movie.actors.join(", ") : movie.actors}</p>
-          <p><strong>Description:</strong> {movie.summary}</p>
+          <p><strong>Rating:</strong> {movie.vote_average}</p>
+          <p><strong>Year:</strong> {movie.release_date?.split("-")[0]}</p>
+          <p><strong>Genre:</strong> {movie.genres?.map((g) => g.name).join(", ")}</p>
+          <p><strong>Language:</strong> {movie.original_language}</p>
+          <p><strong>Director:</strong> {director}</p>
+          <p><strong>Actors:</strong> {actors.join(", ")}</p>
+          <p><strong>Description:</strong> {movie.overview}</p>
         </div>
       </div>
       {/* Reviews Section */}

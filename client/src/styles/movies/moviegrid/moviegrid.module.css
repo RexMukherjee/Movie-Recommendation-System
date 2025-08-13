@@ -89,3 +89,10 @@
     font-size: 0.8rem;
   }
 }
+.ellipsis {
+  font-size: 1.2rem;   
+  font-weight: bold;   
+  color: #444;        
+  padding: 0 8px;      
+  vertical-align: middle;
+}

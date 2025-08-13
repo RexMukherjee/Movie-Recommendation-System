@@ -22,13 +22,13 @@ export default function MovieCard({ movie }) {
       
       <Link href={`/components/movies/singlemovie?id=${movie.id}`} className={styles.movielink}>
         <img
-          src={movie.poster_url}
-          alt={movie.name}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
           className={styles.poster}
         />
         <div className={styles.info}>
           <div className={styles.titleRow}>
-            <h3 className={styles.title}>{movie.name}</h3>
+            <h3 className={styles.title}>{movie.title}</h3>
              
             <button
               onClick={toggleFavorite}
@@ -37,7 +37,7 @@ export default function MovieCard({ movie }) {
               {liked ? <FaHeart /> : <FaRegHeart />}
             </button>
           </div>
-          <p className={styles.rating}>IMDB: {movie.imdb_rating}</p>
+          <p className={styles.rating}>IMDB: {movie.vote_average?.toFixed(1)}</p>
         </div>
       </Link>
      

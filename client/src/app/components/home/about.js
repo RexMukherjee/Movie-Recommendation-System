@@ -3,10 +3,12 @@ import React from 'react'
 import styles from "../../../styles/home/about/about.module.css"
 import Link from 'next/link'
 import MovieCard from '../movies/cards/moviecards'
-import allmovies from '../../data/movies.json'
-import { useRef } from 'react';
+// import allmovies from '../../data/movies.json'
+import { useRef, useEffect, useState } from 'react';
+import { fetchMovies } from '@/lib/tmdb';
 const About = () => {
   const carouselRef = useRef();
+  const [top10Movies, setTop10Movies] = useState([]);
 
   const scroll = (direction) => {
     const { current } = carouselRef;
@@ -18,10 +20,18 @@ const About = () => {
       });
     }
   };
+  useEffect(() => {
+    async function loadMovies() {
+      try {
+        const data = await fetchMovies("/movie/top_rated", { page: 1 });
+        setTop10Movies(data.results.slice(0, 10)); // Take only the top 10
+      } catch (error) {
+        console.error("Failed to fetch popular movies:", error);
+      }
+    }
+    loadMovies();
+  }, []);
 
-  const top10Movies = allmovies
-    .sort((a, b) => b.imdb_rating - a.imdb_rating)
-    .slice(0, 10);
   return (
     <main className={styles.body}>
         <img src='/logo.png' alt='Osbcura' className={styles.heading}/>

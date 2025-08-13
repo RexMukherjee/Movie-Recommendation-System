@@ -47,24 +47,24 @@ export default function FilterPanel({ onFilter }) {
 
       <select name="language" value={filters.language} className={styles.select} onChange={handleChange} style={{backgroundColor: "#353535ff"}}>
         <option value="">Languages</option>
-        <option value="English">English</option>
-        <option value="Hindi">Hindi</option>
-        <option value="Korean">Korean</option>
-        <option value="Japanese">Japanese</option>
-        <option value="German">German</option>
-        <option value="Thai">Thai</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Bengali">Bengali</option>
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="ko">Korean</option>
+        <option value="ja">Japanese</option>
+        <option value="de">German</option>
+        <option value="th">Thai</option>
+        <option value="zh">Chinese</option>
+        <option value="bn">Bengali</option>
       </select>
 
       <select name="genre" value={filters.genre} className={styles.select} onChange={handleChange} style={{backgroundColor: "#353535ff"}}>
         <option value="">Genres</option>
-        <option value="Thriller">Thriller</option>
-        <option value="Suspense">Suspense</option>
-        <option value="Romance">Romance</option>
-        <option value="Mystery">Mystery</option>
-        <option value="Cult Classic">Cult Classic</option>
-        <option value="Supernatural">Supernatural</option>
+        <option value="53">Thriller</option>
+        <option value="9648">Mystery</option>
+        <option value="10749">Romance</option>
+        <option value="27">Horror</option>
+        <option value="14">Fantasy</option>
+        <option value="16">Animation</option>
       </select>
 
       <select name="category" value={filters.category} className={styles.select} onChange={handleChange} style={{backgroundColor: "#353535ff"}}>
@@ -74,8 +74,8 @@ export default function FilterPanel({ onFilter }) {
         <option value="Tollywood">Tollywood</option>
         <option value="Kdrama">Kdrama</option>
         <option value="Jdrama">Jdrama</option>
-        <option value="Anime">Anime</option>
-        <option value="Cartoons">Cartoons</option>
+        <option value="animation">Anime</option>
+        <option value="animation">Cartoons</option>
       </select>
 
       <select name="year" value={filters.year} onChange={handleChange} className={styles.select} style={{backgroundColor: "#353535ff"}}>
