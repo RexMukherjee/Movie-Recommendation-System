@@ -1,17 +1,43 @@
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export async function fetchMovies(endpoint = "/movie/popular", params = {}) {
-const url = new URL(`${BASE_URL}${endpoint}`);
-    url.searchParams.set("api_key", API_KEY);
-    url.searchParams.append("include_adult", "false");
+export async function fetchMovies(endpoint = "/movie/popular", params = {}, retries = 3) {
+  // ✅ CORRECTED: API_KEY (not APL_KEY)
+  if (!API_KEY || API_KEY === "undefined") {
+    throw new Error("TMDB API key is not configured");
+  }
+
+  const url = new URL(`${BASE_URL}${endpoint}`);
+  url.searchParams.set("api_key", API_KEY); // ✅ Correct
+  url.searchParams.append("include_adult", "false");
+
   for (const key in params) {
     url.searchParams.set(key, params[key]);
   }
 
-  
+  console.log("Fetch URL:", url.toString());
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Failed to fetch movies");
-  return res.json();
+  try {
+    const res = await fetch(url);
+    
+    if (!res.ok) {
+      if (res.status >= 500 && retries > 0) {
+        console.log(`Retrying... ${retries} attempts left`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return fetchMovies(endpoint, params, retries - 1);
+      }
+      
+      throw new Error(`Failed to fetch movies: ${res.status} ${res.statusText}`);
+    }
+    
+    return await res.json();
+  } catch (error) {
+    if (retries > 0 && error.message.includes('Failed to fetch')) {
+      console.log(`Retrying... ${retries} attempts left`);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return fetchMovies(endpoint, params, retries - 1);
+    }
+    
+    throw new Error(`Network error: ${error.message}`);
+  }
 }

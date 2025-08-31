@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 import styles from "../../../../../styles/movies/singlemoviepage/singlemoviedetails/singlemoviepage/singlemoviepage.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 // import movies from "../../../../data/movies.json";

@@ -1,0 +1,55 @@
+/* src/styles/search/page.module.css */
+
+.container {
+  padding: 1rem;
+  min-height: 100vh;
+  background: linear-gradient(90deg,  #1c0125 0%, #410529 100%); /* dark background (like Netflix style) */
+  color: white;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.title {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.noResult {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+  color: #ff4c4c;
+}
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
