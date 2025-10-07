@@ -26,7 +26,7 @@ const SignUpPage = () => {
     }
 
     try {
-        const res = await fetch("http://localhost:5000/api/signup", {
+        const res = await fetch("http://localhost:5000/api/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
@@ -63,6 +63,7 @@ const SignUpPage = () => {
           onChange={handleChange}
           required
           className={styles.inputField}
+          suppressHydrationWarning
         />
         <input
           type="email"
@@ -72,6 +73,7 @@ const SignUpPage = () => {
           onChange={handleChange}
           required
           className={styles.inputField}
+          suppressHydrationWarning
         />
         <input
           type="password"
@@ -81,6 +83,7 @@ const SignUpPage = () => {
           onChange={handleChange}
           required
           className={styles.inputField}
+          suppressHydrationWarning
         />
         <button type="submit" className={styles.submitBtn}>Sign Up</button>
         <p className={styles.or}>— or —</p>

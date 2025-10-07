@@ -41,3 +41,44 @@ export async function fetchMovies(endpoint = "/movie/popular", params = {}, retr
     throw new Error(`Network error: ${error.message}`);
   }
 }
+
+// ✅ ADD THIS FUNCTION - Fetch movie videos/trailers
+export async function fetchMovieVideos(movieId, retries = 3) {
+  if (!API_KEY || API_KEY === "undefined") {
+    throw new Error("TMDB API key is not configured");
+  }
+
+  const url = new URL(`${BASE_URL}/movie/${movieId}/videos`);
+  url.searchParams.set("api_key", API_KEY);
+
+  console.log("Fetch Videos URL:", url.toString());
+
+  try {
+    const res = await fetch(url);
+    
+    if (!res.ok) {
+      if (res.status >= 500 && retries > 0) {
+        console.log(`Retrying... ${retries} attempts left`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return fetchMovieVideos(movieId, retries - 1);
+      }
+      
+      throw new Error(`Failed to fetch videos: ${res.status} ${res.statusText}`);
+    }
+    
+    const data = await res.json();
+    return data.results || [];
+  } catch (error) {
+    if (retries > 0 && error.message.includes('Failed to fetch')) {
+      console.log(`Retrying... ${retries} attempts left`);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return fetchMovieVideos(movieId, retries - 1);
+    }
+    
+    throw new Error(`Network error: ${error.message}`);
+  }
+}
+
+export async function searchMovies(query) {
+  return fetchMovies("/search/movie", { query });
+}

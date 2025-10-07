@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Reviewlist from "./reviewlist";
 import Reviews from "./reviews";
 import { useSession ,signIn} from "next-auth/react";
-import { fetchMovies } from "@/lib/tmdb";
+import { fetchMovies, fetchMovieVideos } from "@/lib/tmdb";
 
 export default function SingleMoviePage() {
   const searchParams = useSearchParams();
@@ -14,6 +14,7 @@ export default function SingleMoviePage() {
   const [movie, setMovie] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [activeTab, setActiveTab] = useState("reviews");
+  const [trailer, setTrailer] = useState(null); // ← Add trailer state
    const { data: session } = useSession();
   const router = useRouter();
 
@@ -25,6 +26,7 @@ export default function SingleMoviePage() {
       router.push(`/components/login?callbackUrl=/watch/${movieId}`);
     }
   };
+
 
   useEffect(() => {
   //   if (movieId) {
@@ -41,10 +43,19 @@ export default function SingleMoviePage() {
   if (movieId) {
       const getMovie = async () => {
         try {
-          const data = await fetchMovies(`/movie/${movieId}`, {
+          const [data,videosData] = await await Promise.all([
+            fetchMovies(`/movie/${movieId}`, {
             append_to_response: "credits",
-          });
+          }),
+          fetchMovieVideos(movieId) // ← Fetch videos
+          ]);
           setMovie(data);
+          
+          // Find YouTube trailer
+          const youtubeTrailer = videosData.find(video => 
+            video.type === "Trailer" && video.site === "YouTube"
+          );
+          setTrailer(youtubeTrailer);
 
           // Load reviews from localStorage
           const savedReviews = localStorage.getItem(`reviews_${movieId}`);
@@ -84,7 +95,9 @@ export default function SingleMoviePage() {
             alt={`Watch ${movie.title}`}
             className={styles.trailerPoster}
           />
-          <button  onClick={handleWatchNow} className={styles.watchNowOverlay}>Watch Now</button>  
+          <button  onClick={handleWatchNow} className={styles.watchNowOverlay}>
+            {trailer ? "Watch Trailer" : "Watch Now"} {/* ← Update button text */}
+          </button>  
       </div>
       </div>
 

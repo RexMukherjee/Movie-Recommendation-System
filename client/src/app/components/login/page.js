@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { loginUser } from "@/lib/api";
 import styles from "../../../styles/login/login.module.css"; 
 
 const LoginPage = () => {
@@ -13,6 +14,14 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [isClient, setIsClient] = useState(false);
+    const [loading, setLoading] = useState(false); // ← Add loading state
+
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "true") {
@@ -20,34 +29,35 @@ const LoginPage = () => {
     }
   }, [router, callbackUrl]);
 
+  if (!isClient) {
+    return <div>Loading...</div>; // Or skeleton screen
+  }   
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrorMsg(""); 
+    setLoading(true); // ← Start loading
+
 
     try {
-      const res = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+       // ✅ Use the imported function from api.js
+      
 
-      const data = await res.json();
+      const data = await loginUser({ email, password });
 
-      if (res.ok && data.success) {
-        
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("user", JSON.stringify(data.user));
-        
-        router.push(callbackUrl || "/components/profile");
-      } else {
-        setErrorMsg(data.message || "Login failed. Please check your credentials.");
-      }
-    } catch (error) {
-      setErrorMsg("An unexpected error occurred. Please try again later.");
+    if (data.success) {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify(data.user));
+      router.push(callbackUrl || "/components/profile");
+    } else {
+      setErrorMsg(data.message || "Login failed. Please check your credentials.");
     }
-  };
+  } catch (error) {
+    setErrorMsg("Cannot connect to server. Please make sure the backend is running.");
+    console.error("Login error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className={styles.authContainer}>
@@ -63,6 +73,7 @@ const LoginPage = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           className={styles.inputField}
+          suppressHydrationWarning // ← Fixes hydration error
         />
 
         <input
@@ -72,10 +83,15 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
           className={styles.inputField}
+          suppressHydrationWarning // ← Fixes hydration error
         />
 
-        <button type="submit" className={styles.submitBtn}>
-          Sign In
+        <button 
+        type="submit"
+         className={styles.submitBtn}
+         disabled={loading} // ← Disable when loading
+         >
+          {loading ? "Signing In..." : "Sign In"}
         </button>
 
         <p className={styles.or}>— or —</p>

@@ -1,28 +1,44 @@
-const user = {
-  name: "User Example",
-  email: "demo@example.com",
-  phone: "9999999999",
-  password: "password123",
-};
+const User = require('../models/user');
 
-const userLogin = (req, res) => {
-  const { email, password } = req.body;
+const userLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-  if (email === user.email && password === user.password) {
-    
+    // 1. Check if user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    // 2. Check password
+    const isPasswordValid = await user.comparePassword(password);
+    if (!isPasswordValid) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    // 3. Login successful
     return res.status(200).json({
       success: true,
       message: "Login successful",
       user: {
+        id: user._id,
         name: user.name,
         email: user.email,
         phone: user.phone,
       },
     });
-  } else {
-    return res.status(401).json({
+
+  } catch (error) {
+    console.error('Login error:', error);
+    return res.status(500).json({
       success: false,
-      message: "Invalid credentials",
+      message: "Internal server error",
     });
   }
 };
