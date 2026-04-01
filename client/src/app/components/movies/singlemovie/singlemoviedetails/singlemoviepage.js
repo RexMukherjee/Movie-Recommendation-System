@@ -1,4 +1,5 @@
-"use client"; 
+"use client";
+export const dynamic = "force-dynamic";
 import styles from "../../../../../styles/movies/singlemoviepage/singlemoviedetails/singlemoviepage/singlemoviepage.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 // import movies from "../../../../data/movies.json";
