@@ -1,19 +1,28 @@
 const express = require('express');
 const connectDB = require('./config/database'); 
-const cors = require('cors'); // ← Add this
-const mongoose = require('mongoose');
+const cors = require('cors');
 
 const loginRoutes = require('./routes/login');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+connectDB();
 
-connectDB(); 
+// ✅ CORS FIX
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://your-frontend.vercel.app'
+];
 
-// ✅ Add CORS middleware - THIS IS THE FIX
 app.use(cors({
-  origin: 'http://localhost:3000', // Your frontend URL
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
@@ -21,5 +30,5 @@ app.use(express.json());
 app.use('/api/auth', loginRoutes);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
