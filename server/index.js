@@ -12,7 +12,7 @@ connectDB();
 // ✅ CORS FIX
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-frontend.vercel.app'
+  'https://obscura.vercel.app'
 ];
 
 app.use(cors({
